@@ -7,10 +7,10 @@ from tqdm.auto import tqdm
 
 
 @click.command()
-@click.option('--pg-user', default='root')
-@click.option('--pg-pass', default='root')
+@click.option('--pg-user', default='postgres')
+@click.option('--pg-pass', default='postgres')
 @click.option('--pg-host', default='localhost')
-@click.option('--pg-port', default=5432, type=int)
+@click.option('--pg-port', default=5433, type=int)
 @click.option('--pg-db', default='ny_taxi')
 @click.option('--trip-table', default='green_taxi_trips')
 @click.option('--zone-table', default='taxi_zone_lookup')
