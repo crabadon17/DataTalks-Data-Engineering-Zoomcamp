@@ -1,3 +1,14 @@
+*.parquet
+*.csv
+*.json
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+*.tfvars
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
