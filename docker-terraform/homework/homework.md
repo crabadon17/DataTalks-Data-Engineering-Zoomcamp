@@ -12,7 +12,9 @@ What's the version of `pip` in the image?
 - 23.3.1
 
 ## Answer Question1
-Answer 25.3
+Answer - 25.3
+
+---
 
 ## Question 2. Understanding Docker networking and docker-compose
 
@@ -57,9 +59,10 @@ volumes:
 - db:5432
 
 ## Answer Question2
-db:5432
+Answer - db:5432  
+If multiple answers are correct, select any.
 
-If multiple answers are correct, select any 
+---
 
 ## Question 3. Counting short trips
 
@@ -71,15 +74,18 @@ For the trips in November 2025 (lpep_pickup_datetime between '2025-11-01' and '2
 - 8,421
 
 ## Answer Question3
-SQL Query:
 ```sql
-SELECT COUNT(*) AS trips_le_1_mile 
+-- SQL Query:
+SELECT COUNT(*) AS trips_le_1_mile
 FROM green_taxi_trips
-WHERE lpep_pickup_datetime >= '2025-11-01' 
+WHERE lpep_pickup_datetime >= '2025-11-01'
   AND lpep_pickup_datetime < '2025-12-01'
-	AND trip_distance <=1;
+  AND trip_distance <= 1;
+```
 
 Answer - 8007
+
+---
 
 ## Question 4. Longest trip for each day
 
@@ -93,8 +99,8 @@ Use the pick up time for your calculations.
 - 2025-11-25
 
 ## Answer Question4
-SQL Query:
 ```sql
+-- SQL Query:
 SELECT
   DATE(lpep_pickup_datetime) AS pick_up_day,
   trip_distance AS long_trip_distance
@@ -102,8 +108,11 @@ FROM green_taxi_trips
 WHERE trip_distance < 100
 ORDER BY trip_distance DESC
 LIMIT 1;
+```
 
 Answer - 2025-11-14
+
+---
 
 ## Question 5. Biggest pickup zone
 
@@ -115,8 +124,8 @@ Which was the pickup zone with the largest `total_amount` (sum of all trips) on 
 - Forest Hills
 
 ## Answer Question5
-SQL Query:
 ```sql
+-- SQL Query:
 SELECT
   tzl."Zone",
   SUM(gtt.total_amount) AS total_revenue
@@ -125,10 +134,13 @@ JOIN taxi_zone_lookup tzl
   ON gtt."PULocationID" = tzl."LocationID"
 WHERE DATE(gtt.lpep_pickup_datetime) = '2025-11-18'
 GROUP BY tzl."Zone"
-ORDER BY SUM(gtt.total_amount) DESC
+ORDER BY total_revenue DESC
 LIMIT 1;
+```
 
 Answer - East Harlem North
+
+---
 
 ## Question 6. Largest tip
 
@@ -142,9 +154,8 @@ Note: it's `tip` , not `trip`. We need the name of the zone, not the ID.
 - LaGuardia Airport
 
 ## Answer Question6
-
-SQL Query:
 ```sql
+-- SQL Query:
 SELECT dz."Zone" AS dropoff_zone,
        MAX(gtt.tip_amount) AS max_tip
 FROM green_taxi_trips gtt
@@ -158,38 +169,40 @@ WHERE pz."Zone" = 'East Harlem North'
 GROUP BY dz."Zone"
 ORDER BY max_tip DESC
 LIMIT 1;
+```
 
 Answer - Yorkville West
 
+---
 
 ## Terraform
 
 ## Question 7. Terraform Workflow
 
-Which of the following sequences, respectively, describes the workflow for:
-1. Downloading the provider plugins and setting up backend,
-2. Generating proposed changes and auto-executing the plan
-3. Remove all resources managed by terraform`
+Which of the following sequences, respectively, describes the workflow for:  
+1. Downloading the provider plugins and setting up backend,  
+2. Generating proposed changes and auto-executing the plan  
+3. Remove all resources managed by Terraform
 
 Answers:
-- terraform import, terraform apply -y, terraform destroy
-- teraform init, terraform plan -auto-apply, terraform rm
-- terraform init, terraform run -auto-approve, terraform destroy
-- terraform init, terraform apply -auto-approve, terraform destroy
+
+- terraform import, terraform apply -y, terraform destroy  
+- terraform init, terraform plan -auto-apply, terraform rm  
+- terraform init, terraform run -auto-approve, terraform destroy  
+- terraform init, terraform apply -auto-approve, terraform destroy  
 - terraform import, terraform apply -y, terraform rm
 
 ## Answer Question7
-Answer -terraform init, terraform apply -auto-approve, terraform destroy
-terraform init
-It initializes the Terraform working directory. It downloads provider plugins and configures the backend.
+Answer - terraform init, terraform apply -auto-approve, terraform destroy  
 
-terraform apply -auto-approve
-It creates an execution plan. It automatically applies the changes without asking for confirmation.
+Explanation:
 
-terraform destroy
-It removes all resources managed by Terraform. It cleans up the infrastructure completely.
+- `terraform init`  
+  It initializes the Terraform working directory. It downloads provider plugins and configures the backend.
 
+- `terraform apply -auto-approve`  
+  It creates an execution plan and automatically applies the changes without asking for confirmation.
 
-
-
+- `terraform destroy`  
+  It removes all resources managed by Terraform and cleans up the infrastructure completely.
 
