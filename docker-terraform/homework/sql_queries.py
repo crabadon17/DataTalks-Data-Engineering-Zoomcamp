@@ -21,7 +21,7 @@ SELECT
 FROM green_taxi_trips
 WHERE trip_distance < 100
 ORDER BY trip_distance DESC
-LIMIT 1;;"""
+LIMIT 1;"""
 
 
 '''Question 5. Biggest pickup zone"'''
