@@ -1,15 +1,19 @@
+# Local Files
 *.parquet
 *.csv
 *.json
 
 # Terraform
-
 .terraform/
-
-# Terraform state files
 *.tfstate
 *.tfstate.*
 *.tfstate.backup
+
+# Google Cloud
+google-cloud-sdk/
+**/google-cloud-sdk/
+google-cloud-cli-linux-x86*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
