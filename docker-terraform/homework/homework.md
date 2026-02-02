@@ -72,6 +72,7 @@ For the trips in November 2025 (lpep_pickup_datetime between '2025-11-01' and '2
 
 ## Answer Question3
 SQL Query:
+```sql
 SELECT COUNT(*) AS trips_le_1_mile 
 FROM green_taxi_trips
 WHERE lpep_pickup_datetime >= '2025-11-01' 
@@ -93,6 +94,7 @@ Use the pick up time for your calculations.
 
 ## Answer Question4
 SQL Query:
+```sql
 SELECT
   DATE(lpep_pickup_datetime) AS pick_up_day,
   trip_distance AS long_trip_distance
@@ -114,6 +116,7 @@ Which was the pickup zone with the largest `total_amount` (sum of all trips) on 
 
 ## Answer Question5
 SQL Query:
+```sql
 SELECT
   tzl."Zone",
   SUM(gtt.total_amount) AS total_revenue
@@ -141,6 +144,7 @@ Note: it's `tip` , not `trip`. We need the name of the zone, not the ID.
 ## Answer Question6
 
 SQL Query:
+```sql
 SELECT dz."Zone" AS dropoff_zone,
        MAX(gtt.tip_amount) AS max_tip
 FROM green_taxi_trips gtt
