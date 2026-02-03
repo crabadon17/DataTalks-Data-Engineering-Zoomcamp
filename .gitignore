@@ -2,7 +2,7 @@
 *.parquet
 *.csv
 *.json
-
+keys/
 # Terraform
 .terraform/
 *.tfstate
@@ -13,6 +13,10 @@
 google-cloud-sdk/
 **/google-cloud-sdk/
 google-cloud-cli-linux-x86*
+.env
+.env_encoded
+service-account.json
+encode_env.sh
 
 
 # Byte-compiled / optimized / DLL files
