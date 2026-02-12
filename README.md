@@ -11,7 +11,7 @@ This repository contains my solutions for the **Data Engineering Zoomcamp** assi
 
 ### 2. Homework 2 – Workflow Orchestration
 
-* **Focus:** Implementing workflow orchestration with Airflow.
+* **Focus:** Implementing workflow orchestration with Kestra.
 * **Solution:** [Homework 2 Solution](https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/tree/main/workflow-orchestration/homework-02/homework.md)
 
 ### 3. Homework 3 – Data Warehouse
