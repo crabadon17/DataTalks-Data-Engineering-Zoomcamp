@@ -4,10 +4,10 @@ client = bigquery.Client()
 query_q3 = """
                 SELECT 
                     COUNT(*) as total_records 
+              
                 FROM `de-zoomcamp-486100.dbt_nyctaxi_prod.fct_monthly_zone_revenue`"""
 
-query_q4 = """ 
-               SELECT 
+query_q4 = """  SELECT 
                     pickup_zone,
                     SUM(revenue_monthly_total_amount) as total_revenue
                FROM `de-zoomcamp-486100.dbt_nyctaxi_prod.fct_monthly_zone_revenue`
