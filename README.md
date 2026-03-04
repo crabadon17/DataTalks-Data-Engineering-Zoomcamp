@@ -1,34 +1,63 @@
-# DataTalks-Data-Engineering-Zoomcamp
+# DataTalks Data Engineering Zoomcamp
 
-This repository contains my solutions for the **Data Engineering Zoomcamp** assignments. Each homework focuses on a specific area of data engineering, including infrastructure, workflow orchestration, and data warehousing.
+This repository contains my solutions for the **DataTalks Data
+Engineering Zoomcamp** assignments. Each homework focuses on a specific
+area of data engineering, including infrastructure, workflow
+orchestration, data warehousing, and analytics engineering.
+
+------------------------------------------------------------------------
 
 ## Homework Solutions
 
-### 1. Homework 1 – Docker & Terraform
+### 1. Homework 1 -- Docker & Terraform
 
-* **Focus:** Infrastructure setup using Docker and Terraform.
-* **Solution:** [Homework 1 Solution](https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/blob/main/docker-terraform/homework/homework.md)
+-   **Focus:** Infrastructure setup using Docker and Terraform\
+-   **Solution:**
+    https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/tree/main/1.docker-terraform/homework-01/hw1_answers.md
 
-### 2. Homework 2 – Workflow Orchestration
+------------------------------------------------------------------------
 
-* **Focus:** Implementing workflow orchestration with Kestra.
-* **Solution:** [Homework 2 Solution](https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/tree/main/workflow-orchestration/homework-02/homework.md)
+### 2. Homework 2 -- Workflow Orchestration
 
-### 3. Homework 3 – Data Warehouse
+-   **Focus:** Implementing workflow orchestration with Kestra\
+-   **Solution:**
+    https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/tree/main/2.workflow-orchestration/homework-02/hw2_answers.md
 
-* **Focus:** Building and querying a data warehouse using BigQuery.
-* **Solution:** [Homework 3 Solution](https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/blob/main/data-warehouse/hw3_answer.md)
+------------------------------------------------------------------------
+
+### 3. Homework 3 -- Data Warehouse
+
+-   **Focus:** Building and querying a data warehouse using BigQuery\
+-   **Solution:**
+    https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/tree/main/3.data-warehouse/homework-03/hw3_answers.md
+
+------------------------------------------------------------------------
+
+### 4. Homework 4 -- Analytics Engineering
+
+-   **Focus:** Transforming data using dbt and building analytics-ready
+    models\
+-   **Solution:**
+    https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/blob/main/4.analytics-engineering/homework-04/hw4_answers.md
+
+------------------------------------------------------------------------
 
 ## Repository Structure
 
-```
-.
-├── docker-terraform/          # Homework 1: Infrastructure
-├── workflow-orchestration/    # Homework 2: Airflow workflows
-└── data-warehouse/            # Homework 3: Data warehouse & BigQuery
-```
+    .
+    ├── 1.docker-terraform/
+    ├── 2.workflow-orchestration/
+    └── 3.data-warehouse/
+    └── 4.analytics-engineering
+
+------------------------------------------------------------------------
 
 ## Notes
 
-* All solutions include **code, queries, and explanations** for the respective homework exercises.
-* This repository demonstrates **hands-on experience** in building data engineering pipelines, managing infrastructure, and querying large datasets.
+-   All solutions include **code, SQL queries, and explanations** for
+    each homework exercise.\
+-   This repository demonstrates hands-on experience in:
+    -   Building data pipelines\
+    -   Managing infrastructure\
+    -   Designing data warehouses\
+    -   Performing analytics engineering using dbt
