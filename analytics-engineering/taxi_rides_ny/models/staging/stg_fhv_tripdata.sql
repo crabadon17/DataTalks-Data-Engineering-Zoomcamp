@@ -7,7 +7,5 @@ select
     sr_flag,
     affiliated_base_number
 from {{ source('raw', 'fhv_tripdata') }}
--- El examen requiere filtrar los nulos, pero en Parquet/DuckDB 
--- los nulos a veces se representan como strings vacíos.
 where dispatching_base_num is not null 
   and dispatching_base_num != ''
