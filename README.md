@@ -57,6 +57,7 @@ and batch processing.
 -   **Focus:** Transforming data using PySpark
     models\
 -   **Solution:**
+    https://github.com/crabadon17/DataTalks-Data-Engineering-Zoomcamp/blob/main/batch/homework-06/hw6_answers.md
     
 
 ------------------------------------------------------------------------
