@@ -17,6 +17,7 @@ wget https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-11.par
 - Execute spark.version.
 
 What's the output?
+Answer : The sparks.version print the version of Spark included with PySpark, I used windows setup for installation in my case the output was 4.1.1.
 
 > [!NOTE]
 > To install PySpark follow this [guide](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/06-batch/setup/)
@@ -35,6 +36,8 @@ What is the average size of the Parquet (ending with .parquet extension) Files t
 - 75MB
 - 100MB
 
+Answer : The average size of the parquet that get downloaded was 25MB.
+
 
 ## Question 3: Count records
 
@@ -47,6 +50,14 @@ Consider only trips that started on the 15th of November.
 - 162,604
 - 225,768
 
+```python
+  spark.sql("""
+    SELECT COUNT(*) AS total_trips 
+    FROM yellow_nov_data
+    WHERE pickup_date = '2025-11-15'
+""").show()
+```
+Answer: Using Spark SQL, the total number of trips in the data on November 15 was 162,604.
 
 ## Question 4: Longest trip
 
@@ -57,6 +68,14 @@ What is the length of the longest trip in the dataset in hours?
 - 90.6
 - 134.5
 
+```python
+  spark.sql("""
+  SELECT ROUND(MAX((unix_timestamp(tpep_dropoff_datetime) - unix_timestamp(tpep_pickup_datetime)) / 3600), 1) 
+  AS longest_trip_hour
+  FROM yellow_nov_data
+  """).show()
+```
+Answer: Using Spark SQL, the longest trip was 90.6 hours. Unlike traditional SQL databases that can directly handle time arithmetic, PySpark often uses the unix_timestamp() function to convert timestamps into numeric values for easier aggregation and duration calculations.
 
 ## Question 5: User Interface
 
@@ -66,6 +85,7 @@ Spark's User Interface which shows the application's dashboard runs on which loc
 - 443
 - 4040
 - 8080
+Answer: Port 4040 is used to open the Spark UI, which shows the dashboard of a running Spark application. 
 
 
 
@@ -86,51 +106,19 @@ Using the zone lookup data and the Yellow November 2025 data, what is the name o
 
 If multiple answers are correct, select any
 
-## Submitting the solutions
-
-- Form for submitting: https://courses.datatalks.club/de-zoomcamp-2026/homework/hw6
-- Deadline: See the website
-
-
-## Learning in Public
-
-We encourage everyone to share what they learned. This is called "learning in public".
-
-Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and).
-
-### Example post for LinkedIn
-
-```
-🚀 Week 6 of Data Engineering Zoomcamp by @DataTalksClub complete!
-
-Just finished Module 6 - Batch Processing with Spark. Learned how to:
-
-✅ Set up PySpark and create Spark sessions
-✅ Read and process Parquet files at scale
-✅ Repartition data for optimal performance
-✅ Analyze millions of taxi trips with DataFrames
-✅ Use Spark UI for monitoring jobs
-
-Processing 4M+ taxi trips with Spark - distributed computing is powerful! 💪
-
-Here's my homework solution: <LINK>
-
-Following along with this amazing free course - who else is learning data engineering?
-
-You can sign up here: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
-
-### Example post for Twitter/X
+```python
+  spark.sql("""
+  WITH zone_counts AS (
+      SELECT t.Zone, COUNT(*) AS trip_count
+      FROM yellow_nov_data y
+      JOIN taxi_zone_lookup t
+        ON y.PULocationID = t.LocationID
+      GROUP BY t.Zone
+  )
+  SELECT Zone, trip_count
+  FROM zone_counts
+  WHERE trip_count = (SELECT MIN(trip_count) FROM zone_counts)
+  """).show()
 
 ```
-⚡ Module 6 of Data Engineering Zoomcamp done!
-
-- Batch processing with Spark 🔥
-- PySpark & DataFrames
-- Parquet file optimization
-- Spark UI on port 4040
-
-My solution: <LINK>
-
-Free course by @DataTalksClub: https://github.com/DataTalksClub/data-engineering-zoomcamp/
-```
+Answer:Using Spark SQL, the pickup zones with only 1 trip were Governor's Island/Ellis Island/Liberty Island and Arden Heights. Eltingville/Annadale/Prince's Bay was not included in the answer choices.

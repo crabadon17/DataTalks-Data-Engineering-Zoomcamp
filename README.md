@@ -3,7 +3,8 @@
 This repository contains my solutions for the **DataTalks Data
 Engineering Zoomcamp** assignments. Each homework focuses on a specific
 area of data engineering, including infrastructure, workflow
-orchestration, data warehousing, and analytics engineering.
+orchestration, data warehousing, analytics engineering, data-platforms 
+and batch processing.
 
 ------------------------------------------------------------------------
 
@@ -42,13 +43,34 @@ orchestration, data warehousing, and analytics engineering.
 
 ------------------------------------------------------------------------
 
+### 5. Homework 5 -- Data - Platforms
+
+-   **Focus:** Transforming data using Bruin platform models
+    models\
+-   **Solution:**
+    
+
+------------------------------------------------------------------------
+
+### 6. Homework 6 -- Batch
+
+-   **Focus:** Transforming data using PySpark
+    models\
+-   **Solution:**
+    
+
+------------------------------------------------------------------------
+
 ## Repository Structure
 
-    .
-    ├── 1.docker-terraform/
-    ├── 2.workflow-orchestration/
-    └── 3.data-warehouse/
-    └── 4.analytics-engineering
+        .
+        ├── 1.docker-terraform/
+        ├── 2.workflow-orchestration/
+        ├── 3.data-warehouse/
+        ├── 4.analytics-engineering/
+        ├── 5.data-platforms/
+        └── 6.batch/
+
 
 ------------------------------------------------------------------------
 
@@ -61,3 +83,5 @@ orchestration, data warehousing, and analytics engineering.
     -   Managing infrastructure\
     -   Designing data warehouses\
     -   Performing analytics engineering using dbt
+    -   Data transformation and modeling using Bruin platform
+    -   Distributed data processing and batch analytics using PySpark
